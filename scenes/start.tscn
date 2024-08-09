@@ -1,13 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://musics/songs/gumi-coma-audio.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scenes/start.gd" type="Script" id=2]
 [ext_resource path="res://images/thumbnails/gumi-coma.webp" type="Texture" id=3]
+[ext_resource path="res://images/ui/blank-white.png" type="Texture" id=4]
+[ext_resource path="res://fonts/Inter-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="background" type="Sprite" parent="."]
+self_modulate = Color( 0.576471, 0.576471, 0.576471, 1 )
 scale = Vector2( 0.8, 0.822 )
 texture = ExtResource( 3 )
 region_filter_clip = true
@@ -18,3 +28,39 @@ current = true
 [node name="song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="pressanykey" type="Label" parent="."]
+margin_left = -65.0
+margin_top = -14.0
+margin_right = 70.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "press any key"
+
+[node name="footer" type="Node" parent="."]
+
+[node name="footerbg" type="Sprite" parent="footer"]
+modulate = Color( 0, 0, 0, 0.752941 )
+position = Vector2( -1, 270 )
+scale = Vector2( 8.55, 0.55 )
+texture = ExtResource( 4 )
+
+[node name="ver" type="Label" parent="footer"]
+margin_left = 276.0
+margin_top = 247.0
+margin_right = 500.0
+margin_bottom = 298.0
+custom_fonts/font = SubResource( 2 )
+text = "hatsune miku diva - linux
+v 0.1"
+align = 2
+
+[node name="playnow" type="Label" parent="footer"]
+margin_left = -498.0
+margin_top = 247.0
+margin_right = -151.0
+margin_bottom = 298.0
+custom_fonts/font = SubResource( 2 )
+text = "play
+hatsune miku: disappearance of hatsune-miku"
